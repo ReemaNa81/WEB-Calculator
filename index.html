@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60vh;
+            margin: 0;
+            background-color: #3ea4c4;
+ 
+        }
+
+        #calculator-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #0e8bb1
+        }
+
+        #calculator {
+            text-align: center;
+            width: 60%;
+            padding: 15px;
+            box-sizing: border-box;
+            text-align: left;
+            font-size: 20px;
+            border: 1px solid #39c1eb;
+            margin-bottom: 10px;
+            background-color: #92def5;            
+        }
+
+       .button {
+            width: 25%;
+            padding: 15px;
+            box-sizing: border-box;
+            float: left;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            font-size: 18px;
+            border: none;
+            outline: none;
+       }
+
+       .button:hover {
+            background-color: #e7f70d;
+        }
+
+       .operator {
+            background-color: #39c1eb;
+            color: #ffffff;
+        }
+
+        .operator:hover {
+            background-color: #209e55;
+        }
+
+        .clear {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        .clear:hover {
+            background-color: #e7f70d;
+        }
+
+        #result {
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+            text-align: left;
+            font-size: 20px;
+            border: 1px solid #39c1eb;
+            margin-bottom: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="calculator">
+    <div id="calculator-title">Calculator</div>
+    <div id="result"></div>
+    <button class="button" onclick="appendToResult('7')">7</button>
+    <button class="button" onclick="appendToResult('8')">8</button>
+    <button class="button" onclick="appendToResult('9')">9</button>
+    <button class="button operator" onclick="appendToResult('/')">/</button>
+    <button class="button" onclick="appendToResult('4')">4</button>
+    <button class="button" onclick="appendToResult('5')">5</button>
+    <button class="button" onclick="appendToResult('6')">6</button>
+    <button class="button operator" onclick="appendToResult('*')">*</button>
+    <button class="button" onclick="appendToResult('1')">1</button>
+    <button class="button" onclick="appendToResult('2')">2</button>
+    <button class="button" onclick="appendToResult('3')">3</button>
+    <button class="button operator" onclick="appendToResult('-')">-</button>
+    <button class="button" onclick="appendToResult('0')">0</button>
+    <button class="button" onclick="appendToResult('.')">.</button>
+    <button class="button operator" onclick="appendToResult('+')">+</button>
+    <button class="button clear" onclick="clearResult()">C</button>
+    <button class="button" onclick="calculateResult()">=</button>
+</div>
+
+<script>
+    let resultElement = document.getElementById('result');
+
+    function appendToResult(value) {
+        resultElement.textContent += value;
+    }
+
+    function clearResult() {
+        resultElement.textContent = '';
+    }
+
+    function calculateResult() {
+        try {
+            resultElement.textContent = eval(resultElement.textContent);
+        } catch (error) {
+            resultElement.textContent = 'Error';
+        }
+    }
+</script>
+
+</body>
+</html>
+ 
